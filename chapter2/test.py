@@ -30,6 +30,8 @@ recommendations.getRecommendations(recommendations.critics,'Toby',similarity=rec
 
 movies=recommendations.transformPrefs(recommendations.critics)
 
+#print movies
+
 recommendations.topMatches(movies,'Superman Returns')
 
 recommendations.getRecommendations(movies,'Just My Luck')
@@ -38,3 +40,9 @@ recommendations.getRecommendations(movies,'Just My Luck')
 recommendations.topMatches(movies,'Just My Luck')
 
 recommendations.getRecommendations(movies,'Lady in the Water')
+
+itemsim=recommendations.calculateSimilarItems(recommendations.critics)
+itemsim
+
+
+recommendations.getRecommendedItems(recommendations.critics,itemsim,'Toby')
