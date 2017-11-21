@@ -50,6 +50,8 @@ def sim_pearson(prefs,p1,p2):
   # Sum calculations
   n=len(si)
   
+  if n==0: return 0
+  
   # Sums of all the preferences
   sum1=sum([prefs[p1][it] for it in si])
   sum2=sum([prefs[p2][it] for it in si])

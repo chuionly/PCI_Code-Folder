@@ -19,11 +19,6 @@ print recommendations.topMatches(recommendations.critics,'Toby',n=3)
 
 print recommendations.topMatches(recommendations.critics,'Toby',n=3,similarity=recommendations.sim_distance)
 
-#import pydelicious
-#
-#pydelicious.get_popular(tag='usa')
-
-
 recommendations.getRecommendations(recommendations.critics,'Toby')
 
 recommendations.getRecommendations(recommendations.critics,'Toby',similarity=recommendations.sim_distance)
@@ -36,13 +31,10 @@ recommendations.topMatches(movies,'Superman Returns')
 
 recommendations.getRecommendations(movies,'Just My Luck')
 
-
-recommendations.topMatches(movies,'Just My Luck')
-
 recommendations.getRecommendations(movies,'Lady in the Water')
 
-itemsim=recommendations.calculateSimilarItems(recommendations.critics)
+itemsim=recommendations.calculateSimilarItems(recommendations.critics,n=8)
 itemsim
 
-
 recommendations.getRecommendedItems(recommendations.critics,itemsim,'Toby')
+
