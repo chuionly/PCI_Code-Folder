@@ -38,3 +38,11 @@ itemsim
 
 recommendations.getRecommendedItems(recommendations.critics,itemsim,'Toby')
 
+prefs=recommendations.loadMovieLens()
+prefs['87']
+
+
+recommendations.getRecommendations(prefs,'87')[0:30]
+
+itemsim1=recommendations.calculateSimilarItems(prefs,n=50)
+recommendations.getRecommendedItems(prefs,itemsim1,'87')[0:30]
