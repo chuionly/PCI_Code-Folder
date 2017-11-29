@@ -41,6 +41,7 @@ for feedurl in feedlist:
       apcount.setdefault(word,0)
       if count>1:
         apcount[word]+=1
+    print 'Successed to parse feed %s' % feedurl
   except:
     print 'Failed to parse feed %s' % feedurl
 
@@ -50,7 +51,7 @@ for w,bc in apcount.items():
   if frac>0.1 and frac<0.5:
     wordlist.append(w)
 
-out=file('blogdata1.txt','w')
+out=file('blogdata2.txt','w')
 out.write('Blog')
 for word in wordlist: out.write('\t%s' % word)
 out.write('\n')
