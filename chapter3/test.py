@@ -6,3 +6,5 @@ print clust
 
 clusters.printclust(clust,labels=blognames)
 
+clusters.drawdendrogram(clust,blognames,jpeg='blogclust.jpg')
+
