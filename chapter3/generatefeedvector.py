@@ -5,13 +5,19 @@ import re
 def getwordcounts(url):
   # Parse the feed
   d=feedparser.parse(url)
+#  print d
   wc={}
 
   # Loop over all the entries
   for e in d.entries:
     if 'summary' in e: summary=e.summary
     else: summary=e.description
-
+#    print e
+#    print e.title
+#    print summary
+#注意理解其中的XML结构！把握细节
+#    break
+    
     # Extract a list of words
     words=getwords(e.title+' '+summary)
     for word in words:
@@ -32,24 +38,28 @@ def getwords(html):
 
 apcount={}
 wordcounts={}
-feedlist=[line for line in file('feedlist.txt')]
+feedlist=[line for line in file('feedlist1.txt')]
 for feedurl in feedlist:
   try:
     title,wc=getwordcounts(feedurl)
-    wordcounts[title]=wc
+    wordcounts[title]=wc     #按文章标题 给其中相应的单词 计数
     for word,count in wc.items():
       apcount.setdefault(word,0)
       if count>1:
-        apcount[word]+=1
+        apcount[word]+=1     #给所有出现过的单词计数
     print 'Successed to parse feed %s' % feedurl
   except:
     print 'Failed to parse feed %s' % feedurl
 
+#print apcount
+print wordcounts
+
+
 wordlist=[]
 for w,bc in apcount.items():
   frac=float(bc)/len(feedlist)
-  if frac>0.1 and frac<0.5:
-    wordlist.append(w)
+#  if frac>0.1 and frac<0.5:
+  wordlist.append(w)
 
 out=file('blogdata2.txt','w')
 out.write('Blog')
