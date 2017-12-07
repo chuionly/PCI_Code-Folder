@@ -31,6 +31,8 @@ def pearson(v1,v2):
   pSum=sum([v1[i]*v2[i] for i in range(len(v1))])
   
   # Calculate r (Pearson score)
+  #len(v1)=len(v2)
+  
   num=pSum-(sum1*sum2/len(v1))
   den=sqrt((sum1Sq-pow(sum1,2)/len(v1))*(sum2Sq-pow(sum2,2)/len(v1)))
   if den==0: return 0
