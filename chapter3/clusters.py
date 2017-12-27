@@ -39,6 +39,7 @@ def pearson(v1,v2):
 
   return 1.0-num/den
 
+#understand python class
 class bicluster:
   def __init__(self,vec,left=None,right=None,distance=0.0,id=None):
     self.left=left
@@ -53,6 +54,8 @@ def hcluster(rows,distance=pearson):
 
   # Clusters are initially just the rows
   clust=[bicluster(rows[i],id=i) for i in range(len(rows))]
+
+#  print clust[0].id
 
   while len(clust)>1:
     lowestpair=(0,1)
@@ -81,12 +84,17 @@ def hcluster(rows,distance=pearson):
                          right=clust[lowestpair[1]],
                          distance=closest,id=currentclustid)
 
-    # cluster ids that weren't in the original set are negative
+    #cluster ids that weren't in the original set are negative
     currentclustid-=1
     del clust[lowestpair[1]]
     del clust[lowestpair[0]]
     clust.append(newcluster)
-
+  
+#  print currentclustid
+#  print clust[0].vec
+#  print clust[0].id
+#  print clust[0].left
+#  print clust[0].distance
   return clust[0]
 
 def printclust(clust,labels=None,n=0):
