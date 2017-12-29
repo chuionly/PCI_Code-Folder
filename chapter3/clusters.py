@@ -187,7 +187,7 @@ def kcluster(rows,distance=pearson,k=4):
   for i in range(len(rows[0]))]
 
 #  print ranges
-  print rows[1]
+#  print rows[1]
   
   # Create k randomly placed centroids
   clusters=[[random.random()*(ranges[i][1]-ranges[i][0])+ranges[i][0] 

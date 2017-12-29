@@ -24,18 +24,9 @@ import clusters
 #for r in kclust[0]:
 #    print blognames[r] 
 
-#BeautifulSoup
-#import urllib2
-#from bs4 import BeautifulSoup
-#
-#c=urllib2.urlopen('http://www.baidu.com')
-#soup=BeautifulSoup(c.read(),'lxml')
-#links=soup('a')
-##print soup
-#print links
+import urllib2
+from bs4 import BeautifulSoup
 
-wants,people,data=clusters.readfile('zebo.txt')
-clust=clusters.hcluster(data,distance=clusters.tanamoto)
-clusters.drawdendrogram(clust,wants)
+
 
 
